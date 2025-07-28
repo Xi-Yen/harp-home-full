@@ -138,4 +138,72 @@ export default function Footer() {
   );
 }
 
+// components/Hero.jsx
+export default function Hero() {
+  return (
+    <section className="bg-green-600 text-white text-center py-20 px-4">
+      <div className="max-w-3xl mx-auto">
+        <h1 className="text-4xl md:text-5xl font-bold mb-4">Reliable Home Services, Anytime</h1>
+        <p className="text-lg mb-6">Your trusted team for heating, cooling, plumbing & more. Locally owned. Professionally driven.</p>
+        <a href="/contact" className="bg-white text-green-600 font-semibold px-6 py-3 rounded-xl hover:bg-gray-100">Get a Free Estimate</a>
+      </div>
+    </section>
+  );
+}
+
+// components/ServicesPreview.jsx
+export default function ServicesPreview() {
+  const services = [
+    { title: "Heating", desc: "Stay warm with expert furnace repair & installation." },
+    { title: "Cooling", desc: "Beat the heat with fast and reliable AC services." },
+    { title: "Plumbing", desc: "Leaks, clogs or installs — we do it all." },
+  ];
+
+  return (
+    <section className="py-16 px-4 bg-gray-50">
+      <div className="max-w-6xl mx-auto">
+        <h2 className="text-3xl font-bold text-center mb-10">Our Core Services</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {services.map((s) => (
+            <div key={s.title} className="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition">
+              <h3 className="text-xl font-semibold mb-2">{s.title}</h3>
+              <p className="text-gray-600">{s.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// components/Testimonials.jsx
+export default function Testimonials() {
+  return (
+    <section className="py-16 px-4">
+      <div className="max-w-4xl mx-auto text-center">
+        <h2 className="text-3xl font-bold mb-10">What Customers Say</h2>
+        <div className="bg-white p-6 rounded-2xl shadow-md">
+          <p className="text-lg italic mb-4">"Fantastic service! They fixed our AC in no time. Honest, friendly, and fast!"</p>
+          <p className="font-semibold">— Sarah R.</p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// components/CallToAction.jsx
+export default function CallToAction() {
+  return (
+    <section className="bg-green-50 py-16 px-4 text-center">
+      <div className="max-w-3xl mx-auto">
+        <h2 className="text-3xl font-bold mb-4">Need Help Now?</h2>
+        <p className="mb-6 text-gray-700">Contact our team for 24/7 emergency service or a free consultation today.</p>
+        <a href="/contact" className="bg-green-600 text-white font-semibold px-6 py-3 rounded-xl hover:bg-green-700">
+          Contact Us
+        </a>
+      </div>
+    </section>
+  );
+}
+
 // (favicon.ico should be placed in public/favicon.ico)
