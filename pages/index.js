@@ -1,83 +1,141 @@
-// pages/index.js
-import Head from 'next/head';
-import { CheckCircle, Phone, Wrench, Snowflake, Flame } from 'lucide-react';
+// app/layout.js
+export const metadata = {
+  title: "Harp Home Services | Reliable Heating, Cooling & Plumbing",
+  description: "Top-rated home services for heating, cooling, plumbing, and more. Serving your neighborhood with trusted professionals.",
+};
+
+export default function RootLayout({ children }) {
+  return (
+    <html lang="en">
+      <head>
+        <link rel="icon" href="/favicon.ico" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </head>
+      <body className="font-sans bg-white text-gray-900">
+        <main>{children}</main>
+      </body>
+    </html>
+  );
+}
+
+// app/page.js (Home)
+import Hero from "@/components/Hero";
+import ServicesPreview from "@/components/ServicesPreview";
+import Testimonials from "@/components/Testimonials";
+import CallToAction from "@/components/CallToAction";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 export default function Home() {
-return ( <div> <Head> <title>HARP Home Services</title> <meta name="description" content="Trusted Heating, Cooling & Plumbing" /> </Head>
-
-```
-  {/* Hero Section */}
-  <section className="bg-green-700 text-white py-20 px-6 text-center">
-    <div className="max-w-4xl mx-auto">
-      <h1 className="text-5xl font-bold mb-4">Your Comfort is Our Mission</h1>
-      <p className="text-xl mb-6">HARP Home Services offers expert heating, cooling, and plumbing solutions.</p>
-      <button className="bg-white text-green-700 font-semibold px-6 py-3 rounded shadow hover:bg-green-100 transition">
-        Book a Service
-      </button>
+  return (
+    <div className="flex flex-col min-h-screen">
+      <Navbar />
+      <Hero />
+      <ServicesPreview />
+      <Testimonials />
+      <CallToAction />
+      <Footer />
     </div>
-  </section>
+  );
+}
 
-  {/* Services Section */}
-  <section className="bg-gray-100 py-20 px-6">
-    <div className="max-w-6xl mx-auto text-center">
-      <h2 className="text-3xl font-bold text-green-700 mb-12">Our Services</h2>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div className="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition">
-          <Flame className="text-green-600 w-10 h-10 mb-4 mx-auto" />
-          <h3 className="text-xl font-semibold text-green-700">Heating</h3>
-          <p>Keep warm with furnace installation, repair, and maintenance.</p>
-        </div>
-        <div className="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition">
-          <Snowflake className="text-green-600 w-10 h-10 mb-4 mx-auto" />
-          <h3 className="text-xl font-semibold text-green-700">Cooling</h3>
-          <p>Stay cool with AC repairs, tune-ups, and new installations.</p>
-        </div>
-        <div className="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition">
-          <Wrench className="text-green-600 w-10 h-10 mb-4 mx-auto" />
-          <h3 className="text-xl font-semibold text-green-700">Plumbing</h3>
-          <p>From leaky faucets to pipe replacements — we’ve got you covered.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+// app/about/page.js
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
-  {/* About Section */}
-  <section className="bg-white py-20 px-6">
-    <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-8 items-center">
-      <div>
-        <h2 className="text-3xl font-bold text-green-700 mb-4">About HARP</h2>
+export default function About() {
+  return (
+    <div className="flex flex-col min-h-screen">
+      <Navbar />
+      <div className="flex-grow p-10 max-w-4xl mx-auto">
+        <h1 className="text-4xl font-bold mb-4">About Us</h1>
         <p className="text-lg leading-relaxed">
-          For over 20 years, HARP Home Services has proudly served Connecticut homes with reliable heating, cooling, and plumbing services. Our licensed team brings professionalism, quality, and care to every job.
+          We are a passionate company focused on delivering quality home services. Our team of experts brings reliable and timely solutions to your doorstep.
         </p>
       </div>
-      <img src="/team.jpg" alt="Our Team" className="rounded-2xl shadow-md" />
+      <Footer />
     </div>
-  </section>
-
-  {/* Testimonials */}
-  <section className="bg-green-50 py-20 px-6">
-    <div className="max-w-3xl mx-auto text-center">
-      <h2 className="text-3xl font-bold text-green-700 mb-8">Happy Customers</h2>
-      <div className="space-y-6">
-        <blockquote className="italic bg-white p-6 rounded-xl shadow">“Prompt and professional — HARP restored my heat in hours!”</blockquote>
-        <blockquote className="italic bg-white p-6 rounded-xl shadow">“Fast plumbing service with transparent pricing. Highly recommend!”</blockquote>
-      </div>
-    </div>
-  </section>
-
-  {/* CTA Section */}
-  <section className="bg-green-700 text-white py-20 px-6 text-center">
-    <h2 className="text-3xl font-bold mb-4">Need Help Today?</h2>
-    <p className="text-lg mb-6">Call or book online and we’ll be on the way.</p>
-    <button className="bg-white text-green-700 px-6 py-3 font-semibold rounded shadow hover:bg-green-100 transition">
-      Contact Us
-    </button>
-  </section>
-
-  {/* Footer */}
-  <footer className="bg-gray-800 text-white py-6 text-center">
-    <p>&copy; {new Date().getFullYear()} HARP Home Services. All rights reserved.</p>
-  </footer>
-</div>
-);
+  );
 }
+
+// app/services/page.js
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+
+export default function Services() {
+  return (
+    <div className="flex flex-col min-h-screen">
+      <Navbar />
+      <div className="flex-grow p-10 max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {["Heating", "Cooling", "Plumbing", "Electrical", "Maintenance"].map((service) => (
+          <div className="p-6 border rounded-2xl shadow-md hover:shadow-lg transition" key={service}>
+            <h2 className="text-xl font-semibold mb-2">{service}</h2>
+            <p className="text-gray-600">Detailed description about {service.toLowerCase()} services.</p>
+          </div>
+        ))}
+      </div>
+      <Footer />
+    </div>
+  );
+}
+
+// app/contact/page.js
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+
+export default function Contact() {
+  return (
+    <div className="flex flex-col min-h-screen">
+      <Navbar />
+      <div className="flex-grow p-10 max-w-2xl mx-auto">
+        <h1 className="text-3xl font-bold mb-4">Contact Us</h1>
+        <form className="space-y-4">
+          <input type="text" placeholder="Name" className="w-full p-3 border rounded-xl" />
+          <input type="email" placeholder="Email" className="w-full p-3 border rounded-xl" />
+          <textarea placeholder="Your message" rows="5" className="w-full p-3 border rounded-xl"></textarea>
+          <button className="bg-green-600 text-white px-6 py-3 rounded-xl hover:bg-green-700">
+            Send Message
+          </button>
+        </form>
+      </div>
+      <Footer />
+    </div>
+  );
+}
+
+// components/Navbar.jsx
+import Link from "next/link";
+
+export default function Navbar() {
+  return (
+    <nav className="bg-white border-b shadow-sm p-4">
+      <div className="max-w-7xl mx-auto flex justify-between items-center">
+        <Link href="/" className="text-2xl font-bold text-green-600">
+          Harp Home
+        </Link>
+        <div className="space-x-4">
+          <Link href="/about" className="text-gray-700 hover:text-green-600">About</Link>
+          <Link href="/services" className="text-gray-700 hover:text-green-600">Services</Link>
+          <Link href="/contact" className="text-gray-700 hover:text-green-600">Contact</Link>
+        </div>
+      </div>
+    </nav>
+  );
+}
+
+// components/Footer.jsx
+import Link from "next/link";
+
+export default function Footer() {
+  return (
+    <footer className="bg-gray-100 text-gray-700 text-center p-6 mt-auto">
+      <p className="text-sm">&copy; {new Date().getFullYear()} Harp Home Services. All rights reserved.</p>
+      <div className="mt-2 space-x-4">
+        <Link href="/privacy">Privacy Policy</Link>
+        <Link href="/terms">Terms of Service</Link>
+      </div>
+    </footer>
+  );
+}
+
+// (favicon.ico should be placed in public/favicon.ico)
